@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Task_Manager.Context;
+using Task_Manager.Contex;
 using Task_Manager.Models;
 
 namespace Task_Manager
@@ -12,7 +12,8 @@ namespace Task_Manager
 
             // Add services to the container.
             builder.Services.AddDbContext<TaskContext>(options =>
-                options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+                    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
@@ -31,6 +32,7 @@ namespace Task_Manager
             app.UseAuthorization();
 
             app.MapControllers();
+
 
             app.Run();
         }

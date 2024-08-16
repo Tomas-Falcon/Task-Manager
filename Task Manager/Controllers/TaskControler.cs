@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Task_Manager.Contex;
 using Task_Manager.Models;
 
 namespace Task_Manager.Controllers
@@ -18,7 +19,7 @@ namespace Task_Manager.Controllers
 
         // GET: api/tasks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Task>>> GetTasks()
+        public async Task<ActionResult<IEnumerable<Task_Manager.Models.Task>>> GetTasks()
         {
             return await _context.Tasks.ToListAsync();
         }
